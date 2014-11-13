@@ -1,0 +1,18 @@
+_welcome:
+    path:     /
+    defaults: { _controller: lnlBundle:Home:index }
+
+_categories:
+        path:     /categories/
+        defaults: { _controller: lnlBundle:Categories:create }
+
+_category:
+        path:     /{category}/
+        defaults: { _controller: lnlBundle:Categories:show }
+
+_frontend:
+        path:     /{category}/{subcategory}/
+        defaults: { _controller: lnlBundle:Categories:show }
+
+
+

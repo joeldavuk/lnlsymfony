@@ -1,0 +1,32 @@
+lnl\lnlBundle\Entity\Items:
+    type: entity
+    table: null
+    manyToMany:
+      Categories:
+        targetEntity: Categories
+        joinTable:
+          name: ItemsRelationships
+          joinColumns:
+            item_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            category_id:
+              referencedColumnName: id
+              unique: false
+    repositoryClass: lnl\lnlBundle\Entity\ItemsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: text
+        slug:
+            type: text
+        content:
+            type: text
+        status:
+            type: integer
+    lifecycleCallbacks: {  }

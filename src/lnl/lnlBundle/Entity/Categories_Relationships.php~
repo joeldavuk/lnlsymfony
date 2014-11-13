@@ -1,0 +1,112 @@
+<?php
+
+namespace lnl\lnlBundle\Entity;
+
+use Doctrine\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Categories_Relationships
+ */
+class Categories_Relationships extends Entity
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $baseCategoryId;
+
+    /**
+     * @var string
+     */
+    private $typeOf;
+
+    /**
+     * @var integer
+     */
+    private $categoryId;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set baseCategoryId
+     *
+     * @param integer $baseCategoryId
+     * @return Categories_Relationships
+     */
+    public function setBaseCategoryId($baseCategoryId)
+    {
+        $this->baseCategoryId = $baseCategoryId;
+
+        return $this;
+    }
+
+    /**
+     * Get baseCategoryId
+     *
+     * @return integer 
+     */
+    public function getBaseCategoryId()
+    {
+        return $this->baseCategoryId;
+    }
+
+    /**
+     * Set typeOf
+     *
+     * @param string $typeOf
+     * @return Categories_Relationships
+     */
+    public function setTypeOf($typeOf)
+    {
+        $this->typeOf = $typeOf;
+
+        return $this;
+    }
+
+    /**
+     * Get typeOf
+     *
+     * @return string 
+     */
+    public function getTypeOf()
+    {
+        return $this->typeOf;
+    }
+
+    /**
+     * Set categoryId
+     *
+     * @param integer $categoryId
+     * @return Categories_Relationships
+     */
+    public function setCategoryId($categoryId)
+    {
+        $this->categoryId = $categoryId;
+
+        return $this;
+    }
+
+    /**
+     * Get categoryId
+     *
+     * @return integer 
+     */
+    public function getCategoryId()
+    {
+        return $this->categoryId;
+    }
+}

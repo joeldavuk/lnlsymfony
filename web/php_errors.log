@@ -1,0 +1,33 @@
+[13-Nov-2014 11:02:20 Europe/London] PHP Fatal error:  Class 'Acme\DemoBundle\AcmeDemoBundle' not found in /www/lnlsymfony/app/AppKernel.php on line 22
+[13-Nov-2014 11:02:49 Europe/London] PHP Fatal error:  Class 'Acme\Bundle\lnlBundle' not found in /www/lnlsymfony/app/AppKernel.php on line 22
+[13-Nov-2014 11:07:28 Europe/London] PHP Fatal error:  Class 'lnl\Bundle\lnlBundle' not found in /www/lnlsymfony/app/AppKernel.php on line 22
+[13-Nov-2014 11:38:25 Europe/London] PHP Fatal error:  Class 'lnl\lnlBundle\Controller\Controller' not found in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoryController.php on line 8
+[13-Nov-2014 11:39:00 Europe/London] PHP Fatal error:  Call to a member function addResource() on a non-object in /www/lnlsymfony/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/PhpFileLoader.php on line 48
+[13-Nov-2014 11:39:31 Europe/London] PHP Fatal error:  Call to a member function addResource() on a non-object in /www/lnlsymfony/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/PhpFileLoader.php on line 48
+[13-Nov-2014 11:41:04 Europe/London] PHP Fatal error:  Call to a member function addResource() on a non-object in /www/lnlsymfony/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/PhpFileLoader.php on line 48
+[13-Nov-2014 11:41:55 Europe/London] PHP Fatal error:  Call to a member function addResource() on a non-object in /www/lnlsymfony/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/PhpFileLoader.php on line 48
+[13-Nov-2014 11:41:58 Europe/London] PHP Fatal error:  Call to a member function addResource() on a non-object in /www/lnlsymfony/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/PhpFileLoader.php on line 48
+[13-Nov-2014 11:42:40 Europe/London] PHP Fatal error:  Call to a member function addResource() on a non-object in /www/lnlsymfony/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/PhpFileLoader.php on line 48
+[13-Nov-2014 11:42:42 Europe/London] PHP Fatal error:  Call to a member function addResource() on a non-object in /www/lnlsymfony/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/PhpFileLoader.php on line 48
+[13-Nov-2014 15:43:06 Europe/London] PHP Fatal error:  Call to undefined method lnl\lnlBundle\Entity\Items::addItem() in /www/lnlsymfony/src/lnl/lnlBundle/Entity/Categories.php on line 198
+[13-Nov-2014 15:54:55 Europe/London] PHP Fatal error:  Call to undefined method lnl\lnlBundle\Entity\Items::setCategory() in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 28
+[13-Nov-2014 16:37:44 Europe/London] PHP Fatal error:  Class 'lnl\lnlBundle\Controller\StdClass' not found in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 16
+[13-Nov-2014 16:55:50 Europe/London] PHP Fatal error:  Call to undefined method lnl\lnlBundle\Entity\Items::setCategory() in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 41
+[13-Nov-2014 16:56:36 Europe/London] PHP Fatal error:  Call to undefined method lnl\lnlBundle\Entity\Items::setCategory() in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 41
+[13-Nov-2014 17:05:10 Europe/London] PHP Fatal error:  Call to a member function id() on a non-object in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 21
+[13-Nov-2014 17:05:19 Europe/London] PHP Fatal error:  Call to a member function getId() on a non-object in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 21
+[13-Nov-2014 17:05:29 Europe/London] PHP Fatal error:  Call to a member function id() on a non-object in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 21
+[13-Nov-2014 17:07:10 Europe/London] PHP Fatal error:  Call to a member function getId() on a non-object in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 21
+[13-Nov-2014 17:10:11 Europe/London] PHP Fatal error:  Call to a member function getId() on a non-object in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 21
+[13-Nov-2014 17:10:43 Europe/London] PHP Fatal error:  Call to a member function getId() on a non-object in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 21
+[13-Nov-2014 17:11:08 Europe/London] PHP Fatal error:  Call to a member function getId() on a non-object in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 19
+[13-Nov-2014 17:21:32 Europe/London] PHP Fatal error:  Call to a member function getResult() on a non-object in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 22
+[13-Nov-2014 17:22:34 Europe/London] PHP Fatal error:  Call to a member function getCategories() on a non-object in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 24
+[13-Nov-2014 17:25:26 Europe/London] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 119013376 bytes) in /www/lnlsymfony/vendor/twig/twig/lib/Twig/Extension/Debug.php on line 66
+[13-Nov-2014 17:26:58 Europe/London] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 120848384 bytes) in /www/lnlsymfony/vendor/twig/twig/lib/Twig/Extension/Debug.php on line 66
+[13-Nov-2014 17:27:14 Europe/London] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 119013376 bytes) in /www/lnlsymfony/vendor/twig/twig/lib/Twig/Extension/Debug.php on line 66
+[13-Nov-2014 17:33:15 Europe/London] PHP Fatal error:  Call to undefined method Doctrine\Bundle\DoctrineBundle\Registry::getRepositoy() in /www/lnlsymfony/src/lnl/lnlBundle/Controller/CategoriesController.php on line 20
+[13-Nov-2014 17:33:44 Europe/London] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 120848384 bytes) in /www/lnlsymfony/vendor/twig/twig/lib/Twig/Extension/Debug.php on line 66
+[13-Nov-2014 17:34:36 Europe/London] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 120848384 bytes) in /www/lnlsymfony/vendor/twig/twig/lib/Twig/Extension/Debug.php on line 66
+[13-Nov-2014 17:35:10 Europe/London] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 119013376 bytes) in /www/lnlsymfony/vendor/twig/twig/lib/Twig/Extension/Debug.php on line 66
+[13-Nov-2014 17:35:34 Europe/London] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 119013376 bytes) in /www/lnlsymfony/vendor/twig/twig/lib/Twig/Extension/Debug.php on line 66

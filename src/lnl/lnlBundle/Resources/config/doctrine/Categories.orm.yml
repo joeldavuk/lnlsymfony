@@ -1,0 +1,27 @@
+lnl\lnlBundle\Entity\Categories:
+    type: entity
+    oneToMany:
+        children:
+          targetEntity: Categories
+          mappedBy: parent
+    manyToOne:
+        parent:
+          targetEntity: Categories
+          inversedBy: children
+    table: null
+    repositoryClass: lnl\lnlBundle\Entity\CategoriesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: text
+        slug:
+            type: string
+            length: '255'
+        image:
+            type: text
+    lifecycleCallbacks: {  }
