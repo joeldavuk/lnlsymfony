@@ -1,27 +1,33 @@
 lnl\lnlBundle\Entity\Categories:
-    type: entity
-    oneToMany:
-        children:
-          targetEntity: Categories
-          mappedBy: parent
-    manyToOne:
-        parent:
-          targetEntity: Categories
-          inversedBy: children
-    table: null
-    repositoryClass: lnl\lnlBundle\Entity\CategoriesRepository
+  type: entity
+  repositoryClass: lnl\lnlBundle\Entity\CategoriesRepository
+  fields:
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
-    fields:
-        title:
-            type: text
-        slug:
-            type: string
-            length: '255'
-        image:
-            type: text
-    lifecycleCallbacks: {  }
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    title:
+      type: text
+      nullable: true
+    slug:
+      type: string
+      length: 255
+      nullable: true
+    image:
+      type: text
+      nullable: true
+  oneToMany:
+    children:
+      targetEntity: lnl\lnlBundle\Entity\Categories
+      mappedBy: parent
+    itemRelationships:
+      targetEntity: lnl\lnlBundle\Entity\ItemRelationships
+      mappedBy: categories
+  manyToOne:
+    parent:
+      targetEntity: lnl\lnlBundle\Entity\Categories
+      inversedBy: children
+      joinColumns:
+        parent_id:
+          referencedColumnName: id

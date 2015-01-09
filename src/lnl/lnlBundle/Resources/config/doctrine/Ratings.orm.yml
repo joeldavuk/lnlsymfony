@@ -1,0 +1,30 @@
+lnl\lnlBundle\Entity\Ratings:
+  type: entity
+  repositoryClass: lnl\lnlBundle\Entity\RatingsRepository
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    author:
+      type: string
+      length: 255
+      nullable: true
+    dateOf:
+      type: datetime
+      nullable: true
+      column: date_of
+    comment:
+      type: text
+      nullable: true
+    rating:
+      type: integer
+      nullable: true
+  manyToOne:
+    items:
+      targetEntity: lnl\lnlBundle\Entity\Items
+      inversedBy: ratings
+      joinColumns:
+        items_id:
+          referencedColumnName: id

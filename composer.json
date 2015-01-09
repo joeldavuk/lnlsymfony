@@ -18,7 +18,19 @@
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
-        "willdurand/faker-bundle": "@stable"
+        "willdurand/faker-bundle": "@stable",
+        "knplabs/knp-paginator-bundle": "~2.4",
+        "knplabs/knp-menu-bundle": "~1.1",
+        "raulfraile/ladybug-bundle": "~1.0",
+        "jackalope/jackalope": "1.2.*@dev",
+        "jackalope/jackalope-doctrine-dbal": "1.2.*@dev",
+        "doctrine/phpcr-odm": "~1.1",
+        "doctrine/phpcr-bundle": "1.2.*",
+        "sonata-project/doctrine-orm-admin-bundle": "2.3.0",
+        "sonata-project/datagrid-bundle": "2.2.*@dev",
+        "sonata-project/classification-bundle": "2.2.2",
+        "sonata-project/user-bundle": "~2.2.4",
+        "sonata-project/easy-extends-bundle": "~2.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

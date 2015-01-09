@@ -19,11 +19,24 @@ bazinga_faker:
                 custom_formatters:
                                 slug:   { method: word }
                                 title:   { method: word }
+                                status: { method: numberBetween, parameters: [ "0", "1" ] }
             lnl\lnlBundle\Entity\Categories:
                 number: 5
                 custom_formatters:
                                 slug:   { method: word }
                                 title:   { method: word }
+                                image: { method: image, parameters: [ "/tmp", "640","640" ] }
+            lnl\lnlBundle\Entity\ItemRelationships:
+                number: 5
+            lnl\lnlBundle\Entity\Meta:
+                number: 5
+                custom_formatters:
+                                itemKey: { method: randomElement, parameters: [ ["meta_description", "meta_keywords", "something_else"] ] }
+                                itemValue:   { method: word }
+                                itemType: { method: randomElement, parameters: [ ["page", "other"] ] }
+            lnl\lnlBundle\Entity\Ratings:
+                            number: 5
+
 
 
 monolog:

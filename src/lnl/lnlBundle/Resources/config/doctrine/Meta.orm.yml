@@ -1,0 +1,30 @@
+lnl\lnlBundle\Entity\Meta:
+  type: entity
+  repositoryClass: lnl\lnlBundle\Entity\MetaRepository
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    itemType:
+      type: string
+      length: 255
+      nullable: true
+      column: item_type
+    itemKey:
+      type: string
+      length: 255
+      nullable: true
+      column: item_key
+    itemValue:
+      type: text
+      nullable: true
+      column: item_value
+  manyToOne:
+    items:
+      targetEntity: lnl\lnlBundle\Entity\Items
+      inversedBy: meta
+      joinColumns:
+        items_id:
+          referencedColumnName: id

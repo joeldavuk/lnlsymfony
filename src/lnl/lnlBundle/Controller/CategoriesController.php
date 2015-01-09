@@ -4,27 +4,44 @@ namespace lnl\lnlBundle\Controller;
 
 use lnl\lnlBundle\Entity\Categories;
 use lnl\lnlBundle\Entity\Items;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class CategoriesController extends Controller {
 
+
     public function showAction($category,$subcategory=NULL) {
 
-        $category_id = $this->getDoctrine()
-            ->getRepository('lnlBundle:Categories')
-            ->findOneBySlug('iste');
+        ini_set('memory_limit', '4004M');
 
-        //find all categories with this id
-        $categories = $this->getDoctrine()
-            ->getRepository('lnlBundle:Categories')
-            ->findByParent($category_id);
+         $category = $this->getDoctrine()
+           ->getRepository('lnlBundle:Categories')
+           ->findOneBySlug($category);
+
+        $childCategories = $category->getChildren();
+
+
+        $em    = $this->getDoctrine()->getManager();
+        $categoryItems = $em->getRepository('lnlBundle:Items')->findItemsBySlug($category);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $categoryItems,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            2/*limit per page*/
+        );
+
+        //print_r($pagination->getItems());
+        //$class_methods = get_class_methods($pagination->getItems());
+
+
+
+
 
 
         return $this->render(
             'lnlBundle:Categories:category.html.twig',
-            array('categories' => $categories)
+            array('categories' => $childCategories,'pagination' => $pagination)
         );
 
     }
@@ -41,6 +58,7 @@ class CategoriesController extends Controller {
         $item->setSlug('Bar');
         $item->setContent('A Foo Bar');
         $item->setStatus('A Foo Bar');
+
 
         $category = $em->getRepository('lnlBundle:Categories')->find(2);
         // relate this product to the category

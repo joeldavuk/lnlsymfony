@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<skipper version="3.0.0.1104" name="Lnlsymfony" mvc="Symfony2" orm="Doctrine2" uuid="1fe24eb0-42bc-4110-8a0c-06bfe7f0ef53">
+  <module name="lnl\lnlBundle\Entity" import-format="Doctrine2Yml" import-path="src/lnl/lnlBundle/Resources/config/doctrine" uuid="d8658c48-d9ff-4272-bea6-b3c8783861b1">
+    <entity name="Categories" uuid="39167423-2c3f-4609-be71-9e77a70c70fa">
+      <field name="id" type="integer" required="true" primary="true" uuid="49424062-16aa-45cb-b508-bd60b5f6e9c9">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="title" type="text" uuid="3831751a-da24-4606-bfd6-5ed56e819ba0"/>
+      <field name="slug" type="string" size="255" uuid="588eab0f-fa55-4472-86bb-161b1e10709a"/>
+      <field name="image" type="text" uuid="38f2c830-11b0-405d-89db-60aac0e2a19f"/>
+      <field name="parent_id" uuid="81e50506-5376-457b-8b28-adfa8ea22bb6"/>
+      <orm-attributes>
+        <attribute name="repository-class">lnl\lnlBundle\Entity\CategoriesRepository</attribute>
+        <attribute name="export-file-name">Categories.orm.yml</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="Categories" to="Categories" owner-alias="children" inverse-alias="parent" uuid="f3703cf4-20b8-4771-ac44-9387b634ae26">
+      <association-field from="parent_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="ItemRelationships" uuid="4effd5b3-c9e9-497c-a809-d354ffd874f2">
+      <field name="id" type="integer" required="true" primary="true" uuid="e6b0fd96-954d-4851-9abc-ad3e2d295202">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="items_id" uuid="605e4052-27a8-4356-8840-cd18120190f9"/>
+      <field name="categories_id" uuid="69eb10de-41f6-44c6-8620-94767f7c0f77"/>
+      <orm-attributes>
+        <attribute name="repository-class">lnl\lnlBundle\Entity\ItemRelationshipsRepository</attribute>
+        <attribute name="export-file-name">ItemRelationships.orm.yml</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="ItemRelationships" to="Items" owner-alias="itemRelationships" inverse-alias="items" uuid="b3475c58-0ca7-4751-a018-fb85d4b73f98">
+      <association-field from="items_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <association from="ItemRelationships" to="Categories" owner-alias="itemRelationships" inverse-alias="categories" uuid="285c9cc8-a1e1-4510-b8e4-44335837a8bb">
+      <association-field from="categories_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="Items" uuid="ba178dcd-4a6a-400c-a930-1ecfd47891af">
+      <field name="id" type="integer" required="true" primary="true" uuid="e8c32563-dc5c-4c6e-a86c-231440ebb708">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="title" type="text" uuid="e3e77b53-e751-4db7-bf7e-43bda3157f0a"/>
+      <field name="slug" type="text" uuid="0bec580e-5407-4253-84cf-b68e2b21b1fe"/>
+      <field name="content" type="text" uuid="cfb3f33e-d186-4ba1-b0e0-2833c4b9f19d"/>
+      <field name="status" type="integer" uuid="bd69856f-dd91-4d0c-be2c-0bca04472cfd"/>
+      <orm-attributes>
+        <attribute name="repository-class">lnl\lnlBundle\Entity\ItemsRepository</attribute>
+        <attribute name="export-file-name">Items.orm.yml</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="Meta" uuid="a942438e-d41d-4629-8dc7-f87715814b74">
+      <field name="id" type="integer" required="true" primary="true" uuid="7de7298a-ee15-4ea7-b6f3-0445e960c071">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="itemType" type="string" size="255" uuid="7934520f-e3de-474c-8f8a-baaebe4ae275">
+        <orm-attributes>
+          <attribute name="column">item_type</attribute>
+        </orm-attributes>
+      </field>
+      <field name="itemKey" type="string" size="255" uuid="0895ab46-e1d6-43ab-97f9-823959c2af88">
+        <orm-attributes>
+          <attribute name="column">item_key</attribute>
+        </orm-attributes>
+      </field>
+      <field name="itemValue" type="text" uuid="09f672dd-d1b1-4937-bb3f-9a44cb243ad7">
+        <orm-attributes>
+          <attribute name="column">item_valu</attribute>
+        </orm-attributes>
+      </field>
+      <field name="items_id" type="integer" uuid="2cd239b9-2746-4c59-9ad9-1a7b4424aef6"/>
+      <orm-attributes>
+        <attribute name="repository-class">lnl\lnlBundle\Entity\MetaRepository</attribute>
+        <attribute name="export-file-name">Meta.orm.yml</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="Meta" to="Items" caption="Items Meta" owner-alias="meta" inverse-alias="items" uuid="d9b2b9f8-1c45-43ea-9af4-aa5ca2fa72e1">
+      <association-field from="items_id" to="id"/>
+    </association>
+    <orm-attributes>
+      <attribute name="namespace">lnl\lnlBundle\Entity</attribute>
+    </orm-attributes>
+  </module>
+  <module name="Fixtures\Bundles\YamlBundle\Entity" import-format="Doctrine2Yml" import-path="vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Tests/DependencyInjection/Fixtures/Bundles/YamlBundle/Resources/config/doctrine" uuid="82b0cbbd-f7a3-49d9-8dc5-1f536417b43f">
+    <entity name="Test" uuid="4a6cadd9-ca64-4d03-93d7-87b31ae0a269">
+      <field name="id" type="integer" required="true" primary="true" uuid="bac91d31-b40f-496f-a79b-e6e46cfa1716"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Test.orm.yml</attribute>
+      </orm-attributes>
+    </entity>
+    <orm-attributes>
+      <attribute name="namespace">Fixtures\Bundles\YamlBundle\Entity</attribute>
+    </orm-attributes>
+  </module>
+  <module name="Symfony\Bridge\Doctrine\Tests\Fixtures" import-format="Doctrine2Php" import-path="vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Tests/Fixtures" uuid="0e8efa75-f160-427f-8bf8-c04fbc19537e">
+    <entity name="AssociationEntity" uuid="980acd8c-7e20-429f-b604-e31c72b447f2">
+      <field name="id" type="integer" required="true" primary="true" uuid="d3fead00-59fa-4404-b983-a759abfcc168">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="single_id" uuid="11e2c428-ee80-4fd6-802f-bb778600811d"/>
+      <field name="composite_id1" uuid="f6a0ca1b-6bc0-4519-a8cf-4c1cd7d746f8"/>
+      <orm-attributes>
+        <attribute name="export-file-name">AssociationEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="AssociationEntity" to="SingleIntIdEntity" owner-alias="" inverse-alias="single" uuid="4fbbace0-fe2e-4c97-a99f-dce0235bb4c8">
+      <association-field from="single_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <association from="AssociationEntity" to="CompositeIntIdEntity" owner-alias="" inverse-alias="composite" uuid="666b9358-2560-4584-83ce-80128d132748">
+      <association-field from="composite_id1" to="id1"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="CompositeIntIdEntity" uuid="63560fea-32f6-473a-bca7-671f98ddaa62">
+      <field name="id1" type="integer" required="true" primary="true" uuid="027235cd-8ba3-4833-acd4-b87653bb90e4"/>
+      <field name="id2" type="integer" required="true" primary="true" uuid="2fdfdf86-b6b9-47db-83d2-246c8d7a0305"/>
+      <field name="name" type="string" uuid="5f8634e8-2812-477b-bbd4-3456f7e8dda0"/>
+      <orm-attributes>
+        <attribute name="export-file-name">CompositeIntIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="CompositeStringIdEntity" uuid="ebff6b34-3f16-47f9-8803-1f6854eea2be">
+      <field name="id1" type="string" required="true" primary="true" uuid="954577ea-ff9c-4442-bb33-f8b0bda532ef"/>
+      <field name="id2" type="string" required="true" primary="true" uuid="06674f02-01b9-48d0-ba15-23a4fe609eba"/>
+      <field name="name" type="string" uuid="4008f232-7fa0-4f2b-a45e-94fb9216c5af"/>
+      <orm-attributes>
+        <attribute name="export-file-name">CompositeStringIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="DoubleNameEntity" uuid="63d102a9-495a-45de-80fd-eba6edebd66e">
+      <field name="id" type="integer" required="true" primary="true" uuid="dcd7cd41-5ca4-44f0-8573-d6b3c0b4de0f"/>
+      <field name="name" type="string" uuid="39940f2b-b818-4058-86e7-cf1ec6d9d57b"/>
+      <field name="name2" type="string" uuid="466012ce-72f4-48f9-9dd1-c25b3458c7e3"/>
+      <orm-attributes>
+        <attribute name="export-file-name">DoubleNameEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="GroupableEntity" uuid="758e54c5-3408-41bf-9d14-fa2cf654f390">
+      <field name="id" type="integer" required="true" primary="true" uuid="e40d761e-82a5-44cb-be1b-54e5197aeafc"/>
+      <field name="name" type="string" uuid="abefb412-2a47-48a6-8ba4-171d2c4a3c2d"/>
+      <field name="groupName" type="string" uuid="b7cabcf3-a705-495e-a55b-dd8a17d66342"/>
+      <orm-attributes>
+        <attribute name="export-file-name">GroupableEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="SingleIntIdEntity" uuid="879ea057-9f87-4f7b-9d17-69e7f17575a5">
+      <field name="id" type="integer" required="true" primary="true" uuid="1d47fcd8-57b4-4891-8900-b14dfcb14aa2"/>
+      <field name="name" type="string" uuid="bdc83721-7893-470d-acac-9adf3f72cdb5"/>
+      <orm-attributes>
+        <attribute name="export-file-name">SingleIntIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="SingleIntIdNoToStringEntity" uuid="b2996467-0d41-4bbc-94e4-6ddc1e8410a2">
+      <field name="id" type="integer" required="true" primary="true" uuid="bd2ae2fe-c691-44c5-927b-6cfd45a4a337"/>
+      <field name="name" type="string" uuid="c777c51f-adcc-4e3b-8397-7caa019ad8fe"/>
+      <orm-attributes>
+        <attribute name="export-file-name">SingleIntIdNoToStringEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="SingleStringIdEntity" uuid="bed4f505-f021-441c-ae57-466fb60f7145">
+      <field name="id" type="string" required="true" primary="true" uuid="63d518f1-4ecb-46e5-a271-745540310276"/>
+      <field name="name" type="string" uuid="f5dd5ccc-1727-4699-8797-05769a9f680c"/>
+      <orm-attributes>
+        <attribute name="export-file-name">SingleStringIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="User" uuid="8021df19-bbbf-44e0-9e14-f08b88294945">
+      <field name="id1" type="integer" required="true" primary="true" uuid="0ceefb3c-38bb-455d-a973-e98972b68886"/>
+      <field name="id2" type="integer" required="true" primary="true" uuid="fa1e5823-3f99-49e8-affe-a7147921aa5d"/>
+      <field name="name" type="string" uuid="29a333eb-9011-41c1-abf5-bbbec5cb80e8"/>
+      <orm-attributes>
+        <attribute name="export-file-name">User.php</attribute>
+      </orm-attributes>
+    </entity>
+    <orm-attributes>
+      <attribute name="namespace">Symfony\Bridge\Doctrine\Tests\Fixtures</attribute>
+    </orm-attributes>
+  </module>
+  <module name="/websites/lnlsymfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/config" import-format="Doctrine2Xml" import-path="vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/config" uuid="8e3501aa-a63c-489e-82db-ca575d09b605"/>
+  <visual-data>
+    <module uuid="0e8efa75-f160-427f-8bf8-c04fbc19537e" bg-color="4294900968" position-x="50" position-y="50" size-x="0" size-x2="501" size-y="0" size-y2="416"/>
+    <project uuid="1fe24eb0-42bc-4110-8a0c-06bfe7f0ef53" size-x="0" size-x2="811" size-y="0" size-y2="918"/>
+    <association uuid="285c9cc8-a1e1-4510-b8e4-44335837a8bb" color="4294218527"/>
+    <entity uuid="39167423-2c3f-4609-be71-9e77a70c70fa" bg-color="4294967295" hdr-color="4292006610" position-x="30" position-y="40" size-x="0" size-x2="92" size-y="0" size-y2="87"/>
+    <entity uuid="4a6cadd9-ca64-4d03-93d7-87b31ae0a269" bg-color="4294967295" hdr-color="4292006610" position-x="20" position-y="40" size-x="0" size-x2="67" size-y="0" size-y2="31"/>
+    <entity uuid="4effd5b3-c9e9-497c-a809-d354ffd874f2" bg-color="4294967295" hdr-color="4292006610" position-x="185" position-y="40" size-x="0" size-x2="85" size-y="0" size-y2="59"/>
+    <association uuid="4fbbace0-fe2e-4c97-a99f-dce0235bb4c8" color="4291261615"/>
+    <entity uuid="63560fea-32f6-473a-bca7-671f98ddaa62" bg-color="4294967295" hdr-color="4292006610" position-x="201" position-y="40" size-x="0" size-x2="98" size-y="0" size-y2="59"/>
+    <entity uuid="63d102a9-495a-45de-80fd-eba6edebd66e" bg-color="4294967295" hdr-color="4292006610" position-x="39" position-y="139" size-x="0" size-x2="88" size-y="0" size-y2="59"/>
+    <association uuid="666b9358-2560-4584-83ce-80128d132748" color="4287255714"/>
+    <entity uuid="758e54c5-3408-41bf-9d14-fa2cf654f390" bg-color="4294967295" hdr-color="4292006610" position-x="200" position-y="139" size-x="0" size-x2="101" size-y="0" size-y2="59"/>
+    <entity uuid="8021df19-bbbf-44e0-9e14-f08b88294945" bg-color="4294967295" hdr-color="4292006610" position-x="379" position-y="238" size-x="0" size-x2="77" size-y="0" size-y2="59"/>
+    <module uuid="82b0cbbd-f7a3-49d9-8dc5-1f536417b43f" bg-color="4293391335" position-x="454" position-y="566" size-x="0" size-x2="107" size-y="0" size-y2="100"/>
+    <entity uuid="879ea057-9f87-4f7b-9d17-69e7f17575a5" bg-color="4294967295" hdr-color="4292006610" position-x="378" position-y="139" size-x="0" size-x2="79" size-y="0" size-y2="45"/>
+    <module uuid="8e3501aa-a63c-489e-82db-ca575d09b605" bg-color="4294897635" position-x="661" position-y="566" size-x="0" size-x2="100" size-y="0" size-y2="100"/>
+    <entity uuid="980acd8c-7e20-429f-b604-e31c72b447f2" bg-color="4294967295" hdr-color="4292006610" position-x="41" position-y="40" size-x="0" size-x2="84" size-y="0" size-y2="59"/>
+    <entity uuid="a942438e-d41d-4629-8dc7-f87715814b74" bg-color="4294967295" hdr-color="4292006610" position-x="172" position-y="181" size-x="0" size-x2="112" size-y="0" size-y2="101"/>
+    <entity uuid="b2996467-0d41-4bbc-94e4-6ddc1e8410a2" bg-color="4294967295" hdr-color="4292006610" position-x="20" position-y="238" size-x="0" size-x2="127" size-y="0" size-y2="45"/>
+    <association uuid="b3475c58-0ca7-4751-a018-fb85d4b73f98" color="4291674923"/>
+    <entity uuid="ba178dcd-4a6a-400c-a930-1ecfd47891af" bg-color="4294967295" hdr-color="4292006610" position-x="34" position-y="181" size-x="0" size-x2="84" size-y="0" size-y2="87"/>
+    <entity uuid="bed4f505-f021-441c-ae57-466fb60f7145" bg-color="4294967295" hdr-color="4292006610" position-x="203" position-y="238" size-x="0" size-x2="94" size-y="0" size-y2="45"/>
+    <module uuid="d8658c48-d9ff-4272-bea6-b3c8783861b1" bg-color="4293391869" position-x="50" position-y="566" size-x="0" size-x2="304" size-y="0" size-y2="302"/>
+    <association uuid="d9b2b9f8-1c45-43ea-9af4-aa5ca2fa72e1" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" color="4288059030"/>
+    <entity uuid="ebff6b34-3f16-47f9-8803-1f6854eea2be" bg-color="4294967295" hdr-color="4292006610" position-x="361" position-y="40" size-x="0" size-x2="113" size-y="0" size-y2="59"/>
+    <association uuid="f3703cf4-20b8-4771-ac44-9387b634ae26" color="4284601169"/>
+  </visual-data>
+</skipper>

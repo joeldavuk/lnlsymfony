@@ -1,0 +1,31 @@
+services:
+    sonata.admin.category:
+        class: lnl\lnlBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Category" }
+        arguments:
+            - ~
+            - lnl\lnlBundle\Entity\Categories
+            - ~
+        calls:
+            - [ setTranslationDomain, [lnlBundle]]
+    sonata.admin.items:
+        class: lnl\lnlBundle\Admin\ItemAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Items" }
+        arguments:
+            - ~
+            - lnl\lnlBundle\Entity\Items
+            - ~
+        calls:
+            - [ setTranslationDomain, [lnlBundle]]
+    sonata.admin.ratings:
+        class: lnl\lnlBundle\Admin\RatingsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Ratings" }
+        arguments:
+            - ~
+            - lnl\lnlBundle\Entity\Ratings
+            - ~
+        calls:
+            - [ setTranslationDomain, [lnlBundle]]

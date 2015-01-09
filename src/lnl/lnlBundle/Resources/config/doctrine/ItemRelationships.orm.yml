@@ -1,0 +1,22 @@
+lnl\lnlBundle\Entity\ItemRelationships:
+  type: entity
+  repositoryClass: lnl\lnlBundle\Entity\ItemRelationshipsRepository
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+  manyToOne:
+    items:
+      targetEntity: lnl\lnlBundle\Entity\Items
+      inversedBy: itemRelationships
+      joinColumns:
+        items_id:
+          referencedColumnName: id
+    categories:
+      targetEntity: lnl\lnlBundle\Entity\Categories
+      inversedBy: itemRelationships
+      joinColumns:
+        categories_id:
+          referencedColumnName: id

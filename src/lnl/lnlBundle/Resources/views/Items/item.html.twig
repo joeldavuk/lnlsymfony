@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Symfony!</title>
+</head>
+<body>
+<h1></h1>
+Item:
+<ol>
+<li>Title: {{ item.title }}</li>
+    <li>Id: {{ item.id }}</li>
+    <li>Slug: {{ item.slug }}</li>
+    <li>Content: {{ item.content }}</li>
+    <li>Status: {{ item.status }}</li>
+</ol>
+Meta:
+<ol>
+    {% for key, value in itemMeta  %}
+        <li>key: {{ value.itemKey }}, value: {{ value.itemValue }}</li>
+    {% endfor %}
+</ol>
+</body>
+</html>

@@ -36,15 +36,28 @@ class Items
 
     /**
      * @var \Doctrine\Common\Collections\Collection
+     * @ORM\OneToMany(targetEntity="Categories", mappedBy="items")
      */
-    private $Categories;
+    private $itemRelationships;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $meta;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $ratings;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->Categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->itemRelationships = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->meta = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ratings = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -150,46 +163,103 @@ class Items
     }
 
     /**
-     * Add Categories
+     * Add itemRelationships
      *
-     * @param \lnl\lnlBundle\Entity\Categories $categories
+     * @param \lnl\lnlBundle\Entity\ItemRelationships $itemRelationships
      * @return Items
      */
-    public function addCategory(\lnl\lnlBundle\Entity\Categories $categories)
+    public function addItemRelationship(\lnl\lnlBundle\Entity\ItemRelationships $itemRelationships)
     {
-        $this->Categories[] = $categories;
+        $this->itemRelationships[] = $itemRelationships;
 
         return $this;
     }
 
     /**
-     * Remove Categories
+     * Remove itemRelationships
      *
-     * @param \lnl\lnlBundle\Entity\Categories $categories
+     * @param \lnl\lnlBundle\Entity\ItemRelationships $itemRelationships
      */
-    public function removeCategory(\lnl\lnlBundle\Entity\Categories $categories)
+    public function removeItemRelationship(\lnl\lnlBundle\Entity\ItemRelationships $itemRelationships)
     {
-        $this->Categories->removeElement($categories);
+        $this->itemRelationships->removeElement($itemRelationships);
     }
 
     /**
-     * Set Categories
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function setCategory(\lnl\lnlBundle\Entity\Categories $categories)
-    {
-        $this->Categories[] = $categories;
-
-        return $this;
-    }
-    /**
-     * Get Categories
+     * Get itemRelationships
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCategories()
+    public function getItemRelationships()
     {
-        return $this->Categories;
+        return $this->itemRelationships;
     }
+
+    /**
+     * Add meta
+     *
+     * @param \lnl\lnlBundle\Entity\Meta $meta
+     * @return Items
+     */
+    public function addMetum(\lnl\lnlBundle\Entity\Meta $meta)
+    {
+        $this->meta[] = $meta;
+
+        return $this;
+    }
+
+    /**
+     * Remove meta
+     *
+     * @param \lnl\lnlBundle\Entity\Meta $meta
+     */
+    public function removeMetum(\lnl\lnlBundle\Entity\Meta $meta)
+    {
+        $this->meta->removeElement($meta);
+    }
+
+    /**
+     * Get meta
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMeta()
+    {
+        return $this->meta;
+    }
+
+    /**
+     * Add ratings
+     *
+     * @param \lnl\lnlBundle\Entity\Ratings $ratings
+     * @return Items
+     */
+    public function addRating(\lnl\lnlBundle\Entity\Ratings $ratings)
+    {
+        $this->ratings[] = $ratings;
+
+        return $this;
+    }
+
+    /**
+     * Remove ratings
+     *
+     * @param \lnl\lnlBundle\Entity\Ratings $ratings
+     */
+    public function removeRating(\lnl\lnlBundle\Entity\Ratings $ratings)
+    {
+        $this->ratings->removeElement($ratings);
+    }
+
+    /**
+     * Get ratings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRatings()
+    {
+        return $this->ratings;
+    }
+
+    public function __toString() {  return $this->title; }
 }

@@ -35,6 +35,11 @@ class Categories
     private $children;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $itemRelationships;
+
+    /**
      * @var \lnl\lnlBundle\Entity\Categories
      */
     private $parent;
@@ -45,6 +50,7 @@ class Categories
     public function __construct()
     {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->itemRelationships = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -157,6 +163,39 @@ class Categories
     public function getChildren()
     {
         return $this->children;
+    }
+
+    /**
+     * Add itemRelationships
+     *
+     * @param \lnl\lnlBundle\Entity\ItemRelationships $itemRelationships
+     * @return Categories
+     */
+    public function addItemRelationship(\lnl\lnlBundle\Entity\ItemRelationships $itemRelationships)
+    {
+        $this->itemRelationships[] = $itemRelationships;
+
+        return $this;
+    }
+
+    /**
+     * Remove itemRelationships
+     *
+     * @param \lnl\lnlBundle\Entity\ItemRelationships $itemRelationships
+     */
+    public function removeItemRelationship(\lnl\lnlBundle\Entity\ItemRelationships $itemRelationships)
+    {
+        $this->itemRelationships->removeElement($itemRelationships);
+    }
+
+    /**
+     * Get itemRelationships
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getItemRelationships()
+    {
+        return $this->itemRelationships;
     }
 
     /**

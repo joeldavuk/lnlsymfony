@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Symfony!</title>
+</head>
+<body>
+<h1></h1>
+Categories:
+<ol>
+    {% for key, value in categories  %}
+        <li>{{ key }}</li>
+    {% endfor %}
+</ol>
+Items:
+<ol>
+    {% for key, value in items  %}
+        <li>{{ value.title }}</li>
+    {% endfor %}
+</ol>
+</body>
+</html>

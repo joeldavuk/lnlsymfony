@@ -12,4 +12,34 @@ use Doctrine\ORM\EntityRepository;
  */
 class ItemsRepository extends EntityRepository
 {
+    public function findItemsBySlug($slug) {
+        /*$query = $this->createQueryBuilder('r')
+            ->select('r as main,g')
+            ->select('r as main,g, count(gg) as members')
+            ->leftjoin('r.group', 'g')
+            ->innerjoin('MyBundle:GroupMemberRel', 'gg', 'WITH', 'r.group = gg.group')
+            ->addGroupBy('g.groupId')
+            ->add('orderBy', 'g.name ' . $order);
+        if ($getQuery == true) {
+            return $query;
+        }
+
+
+        return $query->getQuery()->getResult();
+        */
+
+
+
+        $em    = $this->getEntityManager();
+        $dql   = "SELECT i,m,r,sum(r.rating) AS rating FROM lnlBundle:Items i
+        LEFT JOIN i.meta as m
+        LEFT JOIN i.ratings as r
+        INNER JOIN i.itemRelationships a
+        INNER JOIN a.categories c
+        WHERE c.slug = :slug
+        GROUP BY i.id";
+        $query = $em->createQuery($dql)->setParameter('slug','assumenda');
+        return $query;
+
+    }
 }

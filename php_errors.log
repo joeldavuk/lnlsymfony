@@ -4,3 +4,9 @@
 [13-Nov-2014 10:20:05 UTC] PHP Warning:  date_default_timezone_get(): Invalid date.timezone value 'EUROPE', we selected the timezone 'UTC' for now. in /www/lnlsymfony/app/SymfonyRequirements.php on line 444
 [13-Nov-2014 12:56:59 Europe/London] PHP Fatal error:  Class 'lnl\lnlBundle\lnlBundle' not found in /www/lnlsymfony/app/AppKernel.php on line 22
 [13-Nov-2014 12:59:02 Europe/London] PHP Fatal error:  Class 'lnl\lnlBundle\lnlBundle' not found in /www/lnlsymfony/app/AppKernel.php on line 22
+[13-Nov-2014 19:17:58 UTC] PHP Warning:  require_once(/websites/lnlsymfony/app/bootstrap.php.cache): failed to open stream: No such file or directory in /websites/lnlsymfony/app/console on line 10
+[13-Nov-2014 19:17:58 UTC] PHP Fatal error:  require_once(): Failed opening required '/websites/lnlsymfony/app/bootstrap.php.cache' (include_path='.:/usr/local/Cellar/php56/5.6.2/lib/php') in /websites/lnlsymfony/app/console on line 10
+[13-Nov-2014 19:24:12 UTC] PHP Warning:  Unknown: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in Unknown on line 0
+[04-Jan-2015 22:27:36 Europe/London] PHP Fatal error:  Class 'Symfony\Cmf\Bundle\TreeBrowserBundle\CmfTreeBrowserBundle' not found in /websites/lnlsymfony/app/AppKernel.php on line 23
+[05-Jan-2015 00:05:19 Europe/London] PHP Fatal error:  Class 'JMS\SerializerBundle\JMSSerializerBundle' not found in /websites/lnlsymfony/app/AppKernel.php on line 25
+[07-Jan-2015 00:48:13 Europe/London] PHP Fatal error:  Call to undefined method Composer\Autoload\ClassLoader::registerNamespaces() in /websites/lnlsymfony/app/autoload.php on line 11

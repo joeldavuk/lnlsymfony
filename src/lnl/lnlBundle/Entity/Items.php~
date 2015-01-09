@@ -37,14 +37,20 @@ class Items
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $Categories;
+    private $itemRelationships;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $meta;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->Categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->itemRelationships = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     /**
@@ -150,35 +156,69 @@ class Items
     }
 
     /**
-     * Add Categories
+     * Add itemRelationships
      *
-     * @param \lnl\lnlBundle\Entity\Categories $categories
+     * @param \lnl\lnlBundle\Entity\ItemRelationships $itemRelationships
      * @return Items
      */
-    public function addCategory(\lnl\lnlBundle\Entity\Categories $categories)
+    public function addItemRelationship(\lnl\lnlBundle\Entity\ItemRelationships $itemRelationships)
     {
-        $this->Categories[] = $categories;
+        $this->itemRelationships[] = $itemRelationships;
 
         return $this;
     }
 
     /**
-     * Remove Categories
+     * Remove itemRelationships
      *
-     * @param \lnl\lnlBundle\Entity\Categories $categories
+     * @param \lnl\lnlBundle\Entity\ItemRelationships $itemRelationships
      */
-    public function removeCategory(\lnl\lnlBundle\Entity\Categories $categories)
+    public function removeItemRelationship(\lnl\lnlBundle\Entity\ItemRelationships $itemRelationships)
     {
-        $this->Categories->removeElement($categories);
+        $this->itemRelationships->removeElement($itemRelationships);
     }
 
     /**
-     * Get Categories
+     * Get itemRelationships
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCategories()
+    public function getItemRelationships()
     {
-        return $this->Categories;
+        return $this->itemRelationships;
+    }
+
+
+    /**
+     * Add meta
+     *
+     * @param \lnl\lnlBundle\Entity\Meta $meta
+     * @return Items
+     */
+    public function addMeta(\lnl\lnlBundle\Entity\Meta $meta)
+    {
+        $this->meta[] = $meta;
+
+        return $this;
+    }
+
+    /**
+     * Remove meta
+     *
+     * @param \lnl\lnlBundle\Entity\Meta $meta
+     */
+    public function removeMeta(\lnl\lnlBundle\Entity\Meta $meta)
+    {
+        $this->meta->removeElement($meta);
+    }
+
+    /**
+     * Get meta
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMeta()
+    {
+        return $this->meta;
     }
 }

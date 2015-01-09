@@ -4,16 +4,42 @@
     <title>Welcome to Symfony!</title>
 </head>
 <body>
-<h1><?php echo $page_title ?></h1>
-Categories {{  dump(categories) }}
-<ul id="navigation">
-    {% for item in categories %}
-    <li>
-        <a href="{{ item.getId() }}">
-         hgjk
-        </a>
-    </li>
+<h1></h1>
+Categories:
+<ol>
+    {% if categories is not empty %}
+    {% for key, value in categories  %}
+        <li>key: {{ key }}, value: {{ value.id }}<img src="{{  value.image|default('') }}"/></li>
     {% endfor %}
-</ul>
+    {% endif %}
+
+</ol>
+{# total items count #}
+<div class="count">
+    {{ pagination.getTotalItemCount }}
+</div>
+<table>
+    <tr>
+        {# sorting of properties based on query components #}
+        <th>{{ knp_pagination_sortable(pagination, 'Sort By Id', 'a.id') }}</th>
+        <th{% if pagination.isSorted('i.title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Sort By Title', 'i.title') }}</th>
+        <th{% if pagination.isSorted('i.title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Sort By Rating', 'r.rating') }}</th>
+    </tr>
+
+    {# use |default('') if blank #}
+    Items:
+
+    <ol>
+        {% for row in pagination %}
+
+             {{ row[0].title }}
+
+        {% endfor %}
+    </ol>
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
 </body>
 </html>
